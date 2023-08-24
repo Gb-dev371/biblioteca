@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner inp = new Scanner(System.in);
         Livro[] livros = new Livro[1000];
-        String retorno, retorno2;
+        String retorno;
         int i = 0;
 
         do{
@@ -62,18 +62,23 @@ public class Main {
 
             if(retorno.equals("4")){
                 System.out.println("Livros listados:");
-                for(int k=0; k<i; k++){
-                    System.out.println(livros[k].getNome() +", " +
-                            livros[k].getAutor() +", " +
-                            livros[k].getISBN() +", " +
-                            livros[k].getAno() +", " +
-                            livros[k].getEditora() +", " +
-                            livros[k].getPrateleira() +", "+
-                            livros[k].getSecao() +", "+
-                            livros[k].getISBN() +", "+
-                            livros[k].getEdicao() +", "+
-                            livros[k].getAno() +", "+
-                            livros[k].getCDD() +", ");
+
+                if(i>0) {
+                    for (int k = 0; k < i; k++) {
+                        System.out.println(livros[k].getNome() + ", " +
+                                livros[k].getAutor() + ", " +
+                                livros[k].getISBN() + ", " +
+                                livros[k].getAno() + ", " +
+                                livros[k].getEditora() + ", " +
+                                livros[k].getPrateleira() + ", " +
+                                livros[k].getSecao() + ", " +
+                                livros[k].getISBN() + ", " +
+                                livros[k].getEdicao() + ", " +
+                                livros[k].getAno() + ", " +
+                                livros[k].getCDD() + ", ");
+                    }
+                }else{
+                    System.out.println("Não há livros cadastrados.");
                 }
             }
 
@@ -81,6 +86,16 @@ public class Main {
                 System.out.println("Total = 1000");
                 System.out.println("Usado = "+i);
                 System.out.println("Disponíveis: "+(1000-i));
+            }
+
+            if(retorno.equals("6")){
+                if(i>0){
+                    i--;
+                    System.out.println("Excluído com sucesso");
+                }else{
+                    System.out.println("Não existe nenhum livro cadastrado");
+                }
+
             }
 
         }while(!retorno.equals("7"));
