@@ -3,6 +3,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner inp = new Scanner(System.in);
         Livro[] livros = new Livro[1000];
+        Revista[] revistas = new Revista[1000];
         String retorno;
         int i = 0;
 
